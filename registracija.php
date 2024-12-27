@@ -64,14 +64,24 @@
     function preveriGesli() {
         const geslo = document.getElementById('geslo').value;
         const potrdiGeslo = document.getElementById('potrdi-geslo').value;
+        const gesloVzorec = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>])[A-Za-z\d!@#$%^&*(),.?":{}|<>]{8,}$/;
 
+        if (!gesloVzorec.test(geslo)) {
+            alert('Geslo mora vsebovati najmanj 8 znakov, eno veliko črko, eno številko in en poseben znak.');
+            return false;
+        }
+
+        // Check if the passwords match
         if (geslo !== potrdiGeslo) {
             alert('Gesli se ne ujemata. Prosimo, poskusite znova.');
             return false;
         }
+
         return true;
     }
 </script>
+
+
 <?php
 $host = "localhost"; 
 $dbname = "sprehajalecpsov"; 

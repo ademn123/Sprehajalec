@@ -28,6 +28,31 @@ echo "<br><a href='odjava.php'>Odjava</a>";
 
 <div class="container ozadje_diva pisava_glavna">
     <div class="row">
+ 
+        <div class="col-12">
+            <form method="POST" action="" class="mb-4">
+                <label for="barva" class="form-label">Filtiraj po barvi:</label>
+                <select name="barva" id="barva" class="form-select" onchange="this.form.submit()">
+                    <option value="">Vse barve</option>
+                    <option value="Bela" <?php echo isset($_POST['barva']) && $_POST['barva'] == 'Bela' ? 'selected' : ''; ?>>Bela</option>
+                    <option value="Črna" <?php echo isset($_POST['barva']) && $_POST['barva'] == 'Črna' ? 'selected' : ''; ?>>Črna</option>
+                    <option value="Rjava" <?php echo isset($_POST['barva']) && $_POST['barva'] == 'Rjava' ? 'selected' : ''; ?>>Rjava</option>
+                    <option value="Siva" <?php echo isset($_POST['barva']) && $_POST['barva'] == 'Siva' ? 'selected' : ''; ?>>Siva</option>
+                    <option value="Zlata" <?php echo isset($_POST['barva']) && $_POST['barva'] == 'Zlata' ? 'selected' : ''; ?>>Zlata</option>
+                    <option value="Bež" <?php echo isset($_POST['barva']) && $_POST['barva'] == 'Bež' ? 'selected' : ''; ?>>Bež</option>
+                    <option value="Peščena" <?php echo isset($_POST['barva']) && $_POST['barva'] == 'Peščena' ? 'selected' : ''; ?>>Peščena</option>
+                    <option value="Tigrasta" <?php echo isset($_POST['barva']) && $_POST['barva'] == 'Tigrasta' ? 'selected' : ''; ?>>Tigrasta</option>
+                    <option value="Svetlo rjava" <?php echo isset($_POST['barva']) && $_POST['barva'] == 'Svetlo rjava' ? 'selected' : ''; ?>>Svetlo rjava</option>
+                    <option value="Temno rjava" <?php echo isset($_POST['barva']) && $_POST['barva'] == 'Temno rjava' ? 'selected' : ''; ?>>Temno rjava</option>
+                    <option value="Krem" <?php echo isset($_POST['barva']) && $_POST['barva'] == 'Krem' ? 'selected' : ''; ?>>Krem</option>
+                    <option value="Modra" <?php echo isset($_POST['barva']) && $_POST['barva'] == 'Modra' ? 'selected' : ''; ?>>Modra</option>
+                    <option value="Čokoladno rjava" <?php echo isset($_POST['barva']) && $_POST['barva'] == 'Čokoladno rjava' ? 'selected' : ''; ?>>Čokoladno rjava</option>
+                    <option value="Ljubičasta" <?php echo isset($_POST['barva']) && $_POST['barva'] == 'Ljubičasta' ? 'selected' : ''; ?>>Ljubičasta</option>
+                    <option value="Rumena" <?php echo isset($_POST['barva']) && $_POST['barva'] == 'Rumena' ? 'selected' : ''; ?>>Rumena</option>
+                </select>
+            </form>
+        </div>
+
         <h1 class="naslovTeme" align="left"><b>Naši kužki</b></h1><br><br>
         <div class="col-6">
 <?php
@@ -49,7 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['odstrani_psa'])) {
     }
 }
 
-function PodatkiPsov($conn) {
+function PodatkiPsov($conn, $barva = '') {
     $sql = "
         SELECT 
             k.id_kuza,
@@ -72,6 +97,10 @@ function PodatkiPsov($conn) {
         JOIN POSTELJICA post ON k.TK_posteljica = post.id_posteljica
         JOIN SOBA soba ON post.TK_soba = soba.id_soba
     ";
+    
+    if ($barva) {
+        $sql .= " WHERE k.barva = '" . $conn->real_escape_string($barva) . "'";
+    }
 
     $result = $conn->query($sql);
     $PesPodatki = [];
@@ -85,7 +114,8 @@ function PodatkiPsov($conn) {
     return $PesPodatki;
 }
 
-$psi = PodatkiPsov($conn);
+$barva = isset($_POST['barva']) ? $_POST['barva'] : '';
+$psi = PodatkiPsov($conn, $barva);
 
 function IzpisPsov($pesPodatek) {
     echo "<div class='p-3 mb-3'>";
@@ -137,7 +167,6 @@ if (!empty($psi)) {
   </div>
 </div>
 
-
 <div class="modal" id="confirmationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -158,7 +187,6 @@ if (!empty($psi)) {
   </div>
 </div>
 
-
 <script>
     $(document).ready(function() {
 
@@ -166,9 +194,7 @@ if (!empty($psi)) {
             var pesId = $(this).data('pesid');
             $('#confirmationModal').modal('show'); 
 
-         
             $('#confirmDelete').click(function() {
-                
                 $('#deleteForm_' + pesId).submit();
             });
         });
