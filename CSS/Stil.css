@@ -1,0 +1,56 @@
+*{
+    font-family: Outfit ;
+    color: #000000;
+}
+body {
+    background-color: #fff7d2;
+  }
+
+nav{background-color: #fcf2c5;
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.navbar-nav{
+    gap: 80px;
+}
+
+.slika_glavna{
+    width: 70%;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+
+.container_profil {
+    margin-top: 60px; 
+    width: 750px; 
+    margin-left: auto; 
+    margin-right: auto; 
+    background-color: rgb(26, 26, 27);
+    border-radius: 10px; 
+}
+
+
+.nav-link{
+    color: #000000;
+    font-weight: bolder;
+}
+
+.ozadje_diva{
+    background-color: #fcf2c5;
+    padding: 2%;
+}
+
+.dodajanje {
+    background-color: #E6AE6A; /* Rjava barva */
+    color: white; /* Bel tekst */
+    border: none; /* Brez obrobe */
+    border-radius: 15px; /* Zaobljeni robovi */
+    padding: 10px 20px; /* Notranji odmik */
+    font-size: 16px; /* Velikost pisave */
+    cursor: pointer; /* Kazalec miške */
+    transition: background-color 0.3s ease; /* Prehod za spremembo barve */
+}
+
+
