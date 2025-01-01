@@ -100,7 +100,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $_SESSION['ime'] = $uporabnik['ime'];
             $_SESSION['vloga'] = $uporabnik['vloga'];
 
-            // Izpis pozdrava glede na vlogo
             echo "Prijava uspešna! Dobrodošli, " . htmlspecialchars($uporabnik['ime']) . ".";
             if ($uporabnik['vloga'] === 'admin') {
                 echo " Imate administratorske pravice.";

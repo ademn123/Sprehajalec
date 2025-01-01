@@ -22,8 +22,6 @@ if (!isset($_SESSION['uporabnik_id'])) {
     header("Location: prijava.php");
     exit;
 }
-echo "Dobrodošli, " . htmlspecialchars($_SESSION['ime']) . "!";
-echo "<br><a href='odjava.php'>Odjava</a>";
 ?>
 
 <div class="container ozadje_diva pisava_glavna">
