@@ -13,9 +13,6 @@
             <a class="nav-link" href="kuzki.php">Kužki</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#" >Sprehajalci</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" href="profil.php">Profil</a>
           </li>
         </ul>
