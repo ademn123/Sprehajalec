@@ -71,7 +71,6 @@
             return false;
         }
 
-        // Check if the passwords match
         if (geslo !== potrdiGeslo) {
             alert('Gesli se ne ujemata. Prosimo, poskusite znova.');
             return false;

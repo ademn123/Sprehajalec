@@ -7,7 +7,7 @@
       <div class="collapse navbar-collapse justify-content-center" id="navbarNav"> 
         <ul class="navbar-nav"> 
           <li class="nav-item">
-            <a class="nav-link" href="#">Informacije o zavetišču</a>
+            <a class="nav-link" href="informacije.php">Informacije o zavetišču</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="kuzki.php">Kužki</a>

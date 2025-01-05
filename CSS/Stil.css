@@ -43,14 +43,14 @@ nav{background-color: #fcf2c5;
 }
 
 .dodajanje {
-    background-color: #E6AE6A; /* Rjava barva */
-    color: white; /* Bel tekst */
-    border: none; /* Brez obrobe */
-    border-radius: 15px; /* Zaobljeni robovi */
-    padding: 10px 20px; /* Notranji odmik */
-    font-size: 16px; /* Velikost pisave */
-    cursor: pointer; /* Kazalec miške */
-    transition: background-color 0.3s ease; /* Prehod za spremembo barve */
+    background-color: #E6AE6A; 
+    color: white; 
+    border: none;
+    border-radius: 15px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 

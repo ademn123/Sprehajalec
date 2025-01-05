@@ -47,7 +47,7 @@ Hvala, da ste z nami – skupaj bomo poskrbeli za srečne sprehode in zadovoljne
 Če imate kakršna koli vprašanja ali potrebujete pomoč pri uporabi strani, nas lahko vedno kontaktirate.
         </div>
         <div class="col-6">
-          <img src="Images/korgi.jpg" class="slika_racunalnik" alt="SlikaRacunalnika">
+          <img align="center" src="Images/korgi.jpg">
         </div>
       </div>
     </div>
